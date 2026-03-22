@@ -30,9 +30,9 @@ wd = os.path.dirname(os.path.abspath(__file__))
 
 # == Parameters ==
 start_year_first_season = 1997
-start_year_last_season = 1997
+start_year_last_season = 2024
 matchday_start = 1
-matchday_end = 2
+matchday_end = 38
 
 
 # == Function to get classification data ==
@@ -142,7 +142,7 @@ for start_year in range(start_year_first_season, start_year_last_season + 1):
 
     file_name = f"Season {season}.xlsx"
 
-    print("\Season:", season)
+    print("\nSeason:", season)
 
     # Use ExcelWriter to store each matchday in a different sheet
     writer1 = pd.ExcelWriter(save_folder + "/Classification/" + file_name, engine="xlsxwriter")
@@ -150,7 +150,7 @@ for start_year in range(start_year_first_season, start_year_last_season + 1):
     
     for matchday in range(matchday_start, matchday_end + 1):
 
-        print("\n     Matchday:", matchday, "\n")
+        print("\n     Matchday:", matchday)
 
         # Get data for current matchday
         df_classification = get_classification(driver, season, matchday)
@@ -166,7 +166,7 @@ for start_year in range(start_year_first_season, start_year_last_season + 1):
     writer1.close()
     writer2.close()
 
-    print("\n Data saved for Season:", season)
+    print("\n Data saved for Season:", season, "\n")
 
 # Close Selenium driver
 driver.quit()
