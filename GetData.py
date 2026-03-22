@@ -1,7 +1,7 @@
 '''
 GetData.py
 
-In this script, the function to obtain the classification data and match results of the LaLiga Segunda División is defined, using Selenium to navigate the website and BeautifulSoup to parse the HTML content. Then, a range of seasons and matchdays is iterated to obtain the corresponding data and save it into Excel files separated by season, with each matchday in a different sheet.
+In this script, the function to obtain the classification data and match results of the LaLiga is defined, using Selenium to navigate the website and BeautifulSoup to parse the HTML content. Then, a range of seasons and matchdays is iterated to obtain the corresponding data and save it into Excel files separated by season, with each matchday in a different sheet.
 Parameters for the range of seasons and matchdays to process are also defined. Thus, the main program is responsible for executing the complete data extraction and storage process.
 
 Author: Miguel Ángel Martín
@@ -29,8 +29,8 @@ wd = os.path.dirname(os.path.abspath(__file__))
 
 
 # == Parameters ==
-start_year_first_season = 1987
-start_year_last_season = 1987
+start_year_first_season = 1997
+start_year_last_season = 1997
 matchday_start = 1
 matchday_end = 2
 
@@ -38,12 +38,12 @@ matchday_end = 2
 # == Function to get classification data ==
 def get_classification(driver, season, matchday):
     '''
-    Function to obtain the classification data of the Segunda División for a given season and matchday.
+    Function to obtain the classification data of the LaLiga for a given season and matchday.
     
     Parameters:
     driver (webdriver): Selenium driver used to navigate the webpage.
     season (str): Season in format "YYYY-YY" (e.g., "2023-24").
-    matchday (int): Matchday number (e.g., 1, 2, ..., 42).     
+    matchday (int): Matchday number (e.g., 1, 2, ..., 38).     
     
     Returns:
     pd.DataFrame: DataFrame containing the classification for the specified season and matchday.
@@ -88,12 +88,12 @@ def get_classification(driver, season, matchday):
 # == Function to get match results ==
 def get_matches(driver, season, matchday):
     '''
-    Function to obtain match results of the Segunda División for a given season and matchday.
+    Function to obtain match results of the LaLiga for a given season and matchday.
 
     Parameters:
     driver (webdriver): Selenium driver used to navigate the webpage.
     season (str): Season in format "YYYY-YY" (e.g., "2023-24").
-    matchday (int): Matchday number (e.g., 1, 2, ..., 42).
+    matchday (int): Matchday number (e.g., 1, 2, ..., 38).
     
     Returns:
     pd.DataFrame: DataFrame containing match results for the specified season and matchday.   
